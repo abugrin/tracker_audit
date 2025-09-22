@@ -28,19 +28,11 @@ Before using the tool, you need to configure your Yandex Tracker credentials:
 
 1. **Get OAuth Token**:
    - Visit https://yandex.ru/support/tracker/ru/concepts/access
-   - Create a new application or use existing one
-   - Get your OAuth token
 
-2. **Find Organization ID**:
-   - Go to your Yandex Tracker organization settings
-   - Find your Organization ID
-
-3. **Configure the tool**:
+2. **Configure the tool**:
    ```bash
    python main.py configure
    ```
-
-The tool will guide you through the setup process and securely store your credentials.
 
 ## Usage
 
@@ -124,7 +116,6 @@ tracker_audit/
 - `openpyxl` - Excel file generation
 - `pydantic` - Data validation
 - `python-dotenv` - Environment variable management
-
 
 ### Getting Help
 

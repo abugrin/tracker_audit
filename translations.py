@@ -61,7 +61,7 @@ class Translator:
 TRANSLATIONS: Dict[str, Dict[str, str]] = {
     "en": {
         # CLI Messages
-        "app_help": "🔍 Yandex Tracker Audit Tool - Audit queues and access permissions",
+        "app_help": "🔍 Tracker Audit Tool - Audit queues and access permissions",
         "configure_help": "🔧 Configure OAuth token and organization ID.",
         "audit_help": "🔍 Audit all queues and their access permissions.",
         "info_help": "ℹ️  Show information about the current configuration and tool.",
@@ -73,18 +73,18 @@ TRANSLATIONS: Dict[str, Dict[str, str]] = {
         "config_use_existing": "Do you want to use the existing configuration?",
         "config_not_found": "🔧 No configuration found. Let's set it up!",
         "config_setup_title": "🔐 Setup Required",
-        "config_setup_description": """[bold blue]Yandex Tracker API Configuration[/bold blue]
+        "config_setup_description": """[bold blue]Tracker API Configuration[/bold blue]
 
 To use this tool, you need:
-1. [bold]OAuth Token[/bold]: Get it from https://oauth.yandex.com/
+1. [bold]OAuth Token[/bold]: Get it from https://yandex.ru/support/tracker/ru/concepts/access
 2. [bold]Organization ID[/bold]: Found in your Tracker organization settings
 
 [yellow]Note:[/yellow] Your credentials will be stored securely in ~/.tracker_audit/.env""",
         "config_enter_token": "[bold]Enter your OAuth token[/bold]",
         "config_enter_org_id": "[bold]Enter your Organization ID[/bold]",
         "config_select_org_type": "[bold]Select organization type[/bold]",
-        "config_org_type_360": "Yandex 360 for Business (numeric ID, e.g., 8015133)",
-        "config_org_type_cloud": "Yandex Cloud Organization (string ID, e.g., bpfstkj3gi1dfd2s5d4d)",
+        "config_org_type_360": "360 Organization (numeric ID, e.g., 1234567)",
+        "config_org_type_cloud": "Cloud Organization (string ID, e.g., bpfstkjasdfawesaf)",
         "config_select_language": "[bold]Select language / Выберите язык[/bold]",
         "config_language_english": "English",
         "config_language_russian": "Русский",
@@ -103,7 +103,7 @@ To use this tool, you need:
         "config_file_location": "   Config file: {path}",
         
         # Audit Process
-        "audit_started": "🔍 Starting comprehensive audit of Yandex Tracker",
+        "audit_started": "🔍 Starting Tracker audit",
         "audit_title": "Audit Started",
         "fetching_queues": "🔍 Fetching all queues...",
         "queues_loaded": "✅ Successfully loaded {count} queues",
@@ -135,10 +135,10 @@ To use this tool, you need:
         
         # Info
         "tool_info_title": "📋 Tool Information",
-        "tool_info_description": """[bold blue]Yandex Tracker Audit Tool[/bold blue]
+        "tool_info_description": """[bold blue]Tracker Audit Tool[/bold blue]
 
 [bold]Purpose:[/bold]
-This tool audits Yandex Tracker queues and their access permissions,
+This tool audits Tracker queues and their access permissions,
 providing comprehensive reports in Excel format.
 
 [bold]Features:[/bold]
@@ -181,8 +181,8 @@ providing comprehensive reports in Excel format.
         "config_found_existing": "✅ Found existing configuration at: {path}",
         "config_use_existing_question": "Do you want to use the existing configuration?",
         "config_not_found_setup": "🔧 No configuration found. Let's set it up!",
-        "config_invalid_360_id": "❌ Yandex 360 organization ID should be numeric (e.g., 8015133)",
-        "config_invalid_cloud_id": "❌ Cloud organization ID should be alphanumeric string (e.g., bpfstkj3gi1dfd2s5d4d)",
+        "config_invalid_360_id": "❌ 360 Organization ID should be numeric (e.g., 1234567)",
+        "config_invalid_cloud_id": "❌ Cloud organization ID should be alphanumeric string (e.g., bpfstad3dewdasde)",
         "audit_config_required": "❌ Configuration required. Run 'configure' command first.",
         "audit_init_failed": "❌ Failed to initialize auditor: {error}",
         "audit_no_queues": "❌ No queues found or failed to fetch queues.",
@@ -211,7 +211,7 @@ providing comprehensive reports in Excel format.
         "export_error": "❌ Error exporting to Excel: {error}",
         
         # Additional audit messages
-        "audit_starting": "🔍 Starting comprehensive audit of Yandex Tracker",
+        "audit_starting": "🔍 Starting Tracker audit",
         "audit_started_title": "Audit Started",
         "audit_completed_success": "✅ Audit completed successfully!",
         "audit_results_exported": "📊 Results exported to: [bold]{path}[/bold]",
@@ -271,10 +271,10 @@ providing comprehensive reports in Excel format.
     
     "ru": {
         # CLI Messages
-        "app_help": "🔍 Инструмент аудита Yandex Tracker - Аудит очередей и прав доступа",
+        "app_help": "🔍 Аудит Трекера - Аудит очередей и прав доступа",
         "configure_help": "🔧 Настроить OAuth токен и ID организации.",
         "audit_help": "🔍 Провести аудит всех очередей и их прав доступа.",
-        "info_help": "ℹ️  Показать информацию о текущей конфигурации и инструменте.",
+        "info_help": "ℹ️  Показать информацию о текущей конфигурации.",
         
         # Configuration
         "config_found": "✅ Найдена существующая конфигурация: {path}",
@@ -283,18 +283,18 @@ providing comprehensive reports in Excel format.
         "config_use_existing": "Хотите использовать существующую конфигурацию?",
         "config_not_found": "🔧 Конфигурация не найдена. Давайте настроим!",
         "config_setup_title": "🔐 Требуется настройка",
-        "config_setup_description": """[bold blue]Конфигурация API Yandex Tracker[/bold blue]
+        "config_setup_description": """[bold blue]Конфигурация API Трекера[/bold blue]
 
-Для использования инструмента вам нужно:
-1. [bold]OAuth токен[/bold]: Получите на https://oauth.yandex.com/
-2. [bold]ID организации[/bold]: Найдите в настройках организации Tracker
+Для использования вам нужно:
+1. [bold]OAuth токен[/bold]: Получите на https://yandex.ru/support/tracker/ru/concepts/access
+2. [bold]ID организации[/bold]: Найдите в настройках организации Трекера
 
-[yellow]Примечание:[/yellow] Ваши учетные данные будут безопасно сохранены в ~/.tracker_audit/.env""",
+[yellow]Примечание:[/yellow] Ваши учетные данные будут сохранены в ~/.tracker_audit/.env""",
         "config_enter_token": "[bold]Введите ваш OAuth токен[/bold]",
         "config_enter_org_id": "[bold]Введите ID организации[/bold]",
         "config_select_org_type": "[bold]Выберите тип организации[/bold]",
-        "config_org_type_360": "Yandex 360 для бизнеса (числовой ID, например, 8015133)",
-        "config_org_type_cloud": "Yandex Cloud Organization (строковый ID, например, bpfstkj3gi1dfd2s5d4d)",
+        "config_org_type_360": "Организация 360 (числовой ID, например, 1234567)",
+        "config_org_type_cloud": "Cloud Организация (строковый ID, например, bpfstkkasdfasew)",
         "config_select_language": "[bold]Select language / Выберите язык[/bold]",
         "config_language_english": "English",
         "config_language_russian": "Русский",
@@ -313,7 +313,7 @@ providing comprehensive reports in Excel format.
         "config_file_location": "   Файл конфигурации: {path}",
         
         # Audit Process
-        "audit_started": "🔍 Начинается комплексный аудит Yandex Tracker",
+        "audit_started": "🔍 Начинается аудит доступов",
         "audit_title": "Аудит запущен",
         "fetching_queues": "🔍 Получение всех очередей...",
         "queues_loaded": "✅ Успешно загружено {count} очередей",
@@ -344,11 +344,11 @@ providing comprehensive reports in Excel format.
 🔐 Всего записей доступа: [bold]{entries}[/bold]""",
         
         # Info
-        "tool_info_title": "📋 Информация об инструменте",
-        "tool_info_description": """[bold blue]Инструмент аудита Yandex Tracker[/bold blue]
+        "tool_info_title": "📋 Информация о приложении",
+        "tool_info_description": """[bold blue]Приложениие для аудита доступов Трекера[/bold blue]
 
 [bold]Назначение:[/bold]
-Этот инструмент проводит аудит очередей Yandex Tracker и их прав доступа,
+Это приложение проводит аудит очередей Трекера и их прав доступа,
 предоставляя подробные отчеты в формате Excel.
 
 [bold]Возможности:[/bold]
@@ -391,8 +391,8 @@ providing comprehensive reports in Excel format.
         "config_found_existing": "✅ Найдена существующая конфигурация: {path}",
         "config_use_existing_question": "Хотите использовать существующую конфигурацию?",
         "config_not_found_setup": "🔧 Конфигурация не найдена. Давайте настроим!",
-        "config_invalid_360_id": "❌ ID организации Yandex 360 должен быть числовым (например, 8015133)",
-        "config_invalid_cloud_id": "❌ ID Cloud организации должен быть буквенно-цифровой строкой (например, bpfstkj3gi1dfd2s5d4d)",
+        "config_invalid_360_id": "❌ ID организации 360 должен быть числовым (например, 1234567)",
+        "config_invalid_cloud_id": "❌ ID Cloud организации должен быть буквенно-цифровой строкой (например, bpfstkffaewdsaew)",
         "audit_config_required": "❌ Требуется конфигурация. Сначала выполните команду 'configure'.",
         "audit_init_failed": "❌ Не удалось инициализировать аудитор: {error}",
         "audit_no_queues": "❌ Очереди не найдены или не удалось их получить.",
@@ -421,7 +421,7 @@ providing comprehensive reports in Excel format.
         "export_error": "❌ Ошибка экспорта в Excel: {error}",
         
         # Additional audit messages
-        "audit_starting": "🔍 Запуск комплексного аудита Yandex Tracker",
+        "audit_starting": "🔍 Запуск аудита Трекера",
         "audit_started_title": "Аудит запущен",
         "audit_completed_success": "✅ Аудит завершен успешно!",
         "audit_results_exported": "📊 Результаты экспортированы в: [bold]{path}[/bold]",
