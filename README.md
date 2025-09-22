@@ -1,159 +1,128 @@
-# Yandex Tracker Audit Tool
+# Инструмент аудита Yandex Tracker
 
-A modern Python CLI tool for auditing Yandex Tracker queues and access permissions with beautiful output and Excel export capabilities.
+> Данное приложение предоставляется как есть и являются примером работы с API Трекера.
 
-**[Русская версия документации](README_RU.md)**
+**[English version](README_EN.md)**
 
-## Installation
+## Установка
 
-1. **Clone or create the project directory**:
+1. **Клонировать или создать директорию проекта**:
    ```bash
    mkdir tracker_audit && cd tracker_audit
    ```
 
-2. **Set up virtual environment**:
+2. **Настроить виртуальное окружение**:
    ```bash
    python3 -m venv venv
-   source venv/bin/activate  # On Windows: venv\Scripts\activate
+   source venv/bin/activate  # В Windows: venv\Scripts\activate
    ```
 
-3. **Install dependencies**:
+3. **Установить зависимости**:
    ```bash
    pip install -r requirements.txt
    ```
 
-## Configuration
+## Конфигурация
 
-Before using the tool, you need to configure your Yandex Tracker credentials:
+Перед использованием инструмента необходимо настроить учетные данные Yandex Tracker:
 
-1. **Get OAuth Token**:
-   - Visit https://yandex.ru/support/tracker/ru/concepts/access
-   - Create a new application or use existing one
-   - Get your OAuth token
+1. **Получить OAuth токен**:
+   - Посетите https://yandex.ru/support/tracker/ru/concepts/access
+   - Создайте новое приложение или используйте существующее
+   - Получите ваш OAuth токен
 
-2. **Find Organization ID**:
-   - Go to your Yandex Tracker organization settings
-   - Find your Organization ID
+2. **Найти ID организации**:
+   - Перейдите в настройки организации Yandex Tracker
+   - Найдите ваш ID организации
 
-3. **Configure the tool**:
+3. **Настроить инструмент**:
    ```bash
    python main.py configure
    ```
 
-The tool will guide you through the setup process and securely store your credentials.
+Инструмент проведет вас через процесс настройки и безопасно сохранит ваши учетные данные.
 
-## Usage
+## Использование
 
-### Basic Commands
+### Основные команды
 
 ```bash
-# Configure credentials (first time setup)
+# Настроить учетные данные (первоначальная настройка)
 python main.py configure
 
-# Run comprehensive audit
+# Запустить комплексный аудит
 python main.py audit
 
-# Run audit with custom output file
-python main.py audit --output my_audit_report.xlsx
+# Запустить аудит с пользовательским файлом вывода
+python main.py audit --output мой_отчет_аудита.xlsx
 
-# Show tool information
+# Показать информацию об инструменте
 python main.py info
 
-# Get help
+# Получить справку
 python main.py --help
 ```
 
-### Advanced Usage
+### Расширенное использование
 
 ```bash
-# Reset configuration
+# Сбросить конфигурацию
 python main.py configure --reset
 
-# Run audit without summary
+# Запустить аудит без сводки
 python main.py audit --no-summary
 
-# Run audit with specific output path
+# Запустить аудит с определенным путем вывода
 python main.py audit -o /path/to/reports/audit_$(date +%Y%m%d).xlsx
 
-# Audit scope options for better performance
-python main.py audit --scope groups        # Fast: Groups only
-python main.py audit --scope users         # Slow: Users only  
-python main.py audit --scope both          # Complete: Both (default)
+# Опции области аудита для лучшей производительности
+python main.py audit --scope groups        # Быстро: Только группы
+python main.py audit --scope users         # Медленно: Только пользователи
+python main.py audit --scope both          # Полный: Группы и пользователи (по умолчанию)
 ```
 
-### Audit Scope Options
+### Опции области аудита
 
-The tool offers three audit scope options to balance speed and completeness:
+Инструмент предлагает три варианта области аудита для баланса скорости и полноты:
 
-- **Groups Only** (`--scope groups`): Fast audit checking only group permissions
-- **Users Only** (`--scope users`): Slower audit checking individual user permissions
-- **Both** (`--scope both`): Complete audit checking both groups and users (default)
+- **Только группы** (`--scope groups`): Быстрый аудит, проверяющий только права групп
+- **Только пользователи** (`--scope users`): Медленный аудит, проверяющий индивидуальные права пользователей
+- **Группы и пользователи** (`--scope both`): Полный аудит, проверяющий как группы, так и пользователей (по умолчанию)
 
-⚠️ **Note**: User permissions audit can take significantly longer for large organizations due to API rate limits.
+## Вывод
 
-## Output
+Инструмент генерирует файл Excel с тремя листами:
 
-The tool generates an Excel file with three sheets:
+1. **Сводка**: Обзорная статистика и разбивки
+2. **Очереди**: Подробная информация о всех очередях
+3. **Права доступа**: Полный аудит доступа с деталями прав
 
-1. **Summary**: Overview statistics and breakdowns
-2. **Queues**: Detailed information about all queues
-3. **Access Permissions**: Complete access audit with permissions details
-
-## Project Structure
+## Структура проекта
 
 ```
 tracker_audit/
-├── main.py           # Main CLI application
-├── config.py         # Configuration management
-├── audit.py          # Audit functionality
-├── export.py         # Excel export functionality
-├── requirements.txt  # Python dependencies
-├── README.md         # This file
-└── venv/            # Virtual environment (created during setup)
+├── main.py           # Основное CLI приложение
+├── config.py         # Управление конфигурацией
+├── audit.py          # Функциональность аудита
+├── export.py         # Функциональность экспорта Excel
+├── translations.py   # Поддержка переводов
+├── requirements.txt  # Зависимости Python
+├── README.md         # Документация (английский)
+├── README_RU.md      # Документация (русский)
+└── venv/            # Виртуальное окружение (создается при настройке)
 ```
 
-## Requirements
+## Требования
 
 - Python 3.8+
-- Yandex Tracker access with appropriate permissions
-- OAuth token for API access
+- Доступ к Yandex Tracker с соответствующими правами
+- OAuth токен для доступа к API
 
-## Dependencies
+### Получение помощи
 
-- `yandex_tracker_client` - Official Yandex Tracker API client
-- `typer` - Modern CLI framework
-- `rich` - Beautiful terminal formatting
-- `openpyxl` - Excel file generation
-- `pydantic` - Data validation
-- `python-dotenv` - Environment variable management
+Выполните `python main.py --help` для получения подробной информации о командах или `python main.py info` для обзора инструмента.
 
-## Security
 
-- OAuth tokens are stored securely in `~/.tracker_audit/.env`
-- Tokens are never displayed in full in the CLI
-- Configuration files are created with appropriate permissions
+## Лицензия
 
-## Troubleshooting
-
-### Common Issues
-
-1. **Authentication Error**:
-   - Verify your OAuth token is correct
-   - Check your organization ID
-   - Ensure your token has necessary permissions
-
-2. **Permission Denied**:
-   - Make sure your account has access to view queue permissions
-   - Contact your Tracker administrator for necessary permissions
-
-3. **No Queues Found**:
-   - Verify you have access to queues in your organization
-   - Check if your organization ID is correct
-
-### Getting Help
-
-Run `python main.py --help` for detailed command information or `python main.py info` for tool overview.
-
-## License
-
-This project is provided as-is for auditing Yandex Tracker installations.
+Этот проект предоставляется как есть для аудита доступов Yandex Tracker.
